@@ -254,7 +254,6 @@ namespace HomeTrackerDatamodelLibrary
         }
         static List<Person> GetPeopleFromXML()
         {
-            //D:\Git\HomeTracker\HomeTrackerTest\bin\Debug
             var peopleXML = (from p in XDocument.Load(@"XMLFiles\People.xml").Descendants("Person")
                              select p).ToList();
 
