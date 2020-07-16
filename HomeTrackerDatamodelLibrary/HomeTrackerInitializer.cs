@@ -11,7 +11,11 @@ namespace HomeTrackerDatamodelLibrary
     public class HomeTrackerInitializer : CreateDatabaseIfNotExists<HomeTrackerModel1>
     {
         protected override void Seed(HomeTrackerModel1 context)
-        { base.Seed(context); }
+        {
+            base.Seed(context);
+            CustomInitializer();
+        }
+
          public  static void CustomInitializer()
         {
             using (HomeTrackerModel1 context = new HomeTrackerModel1())
@@ -250,6 +254,7 @@ namespace HomeTrackerDatamodelLibrary
         }
         static List<Person> GetPeopleFromXML()
         {
+            //D:\Git\HomeTracker\HomeTrackerTest\bin\Debug
             var peopleXML = (from p in XDocument.Load(@"XMLFiles\People.xml").Descendants("Person")
                              select p).ToList();
 

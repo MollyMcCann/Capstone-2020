@@ -8,6 +8,7 @@ using System.Windows.Forms;
 
 namespace HomeTrackerTest
 {
+
     static class Program
     {
         /// <summary>
