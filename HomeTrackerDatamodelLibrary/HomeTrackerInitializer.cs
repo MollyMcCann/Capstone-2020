@@ -11,7 +11,11 @@ namespace HomeTrackerDatamodelLibrary
     public class HomeTrackerInitializer : CreateDatabaseIfNotExists<HomeTrackerModel1>
     {
         protected override void Seed(HomeTrackerModel1 context)
-        { base.Seed(context); }
+        {
+            base.Seed(context);
+            CustomInitializer();
+        }
+
          public  static void CustomInitializer()
         {
             using (HomeTrackerModel1 context = new HomeTrackerModel1())
