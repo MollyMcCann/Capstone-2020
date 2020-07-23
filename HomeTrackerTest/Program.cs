@@ -29,6 +29,8 @@ namespace HomeTrackerTest
                 MessageBox.Show("An error occurred! " + ex.Message);
             }
 
+
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());

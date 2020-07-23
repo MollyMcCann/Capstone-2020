@@ -19,6 +19,18 @@ namespace HomeTrackerTest
 
         object IEnumerator.Current => throw new NotImplementedException();
 
+
+        private List<RealEstateCompany> _realEstateCompanies;
+        int position = -1;
+
+        public void Add(RealEstateCompany realEstateCompany)
+        {
+            var re = _realEstateCompanies.SingleOrDefault(r => r.CompanyId == realEstateCompany.CompanyId);
+            if (re == null)
+            {
+                _realEstateCompanies.Add(realEstateCompany);
+            }
+        }
         public void Dispose()
         {
            // throw new NotImplementedException();
@@ -31,28 +43,24 @@ namespace HomeTrackerTest
 
         public bool MoveNext()
         {
-            throw new NotImplementedException();
+            position++;
+            return (position < _realEstateCompanies.Count);
         }
 
         public void Reset()
         {
-            throw new NotImplementedException();
+            position = -1;
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return (IEnumerator<RealEstateCompany>)this;
         }
 
-        private List<RealEstateCompany> _realEstateCompanies;
 
-        public void Add(RealEstateCompany realEstateCompany)
+        public RealEstateCompany Get(int id)
         {
-            var re = _realEstateCompanies.SingleOrDefault(r => r.CompanyId == realEstateCompany.CompanyId);
-            if (re == null)
-            {
-                _realEstateCompanies.Add(realEstateCompany);
-            }
+            return _realEstateCompanies.SingleOrDefault(re => re.CompanyId == id);
         }
 
     }

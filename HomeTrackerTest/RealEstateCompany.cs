@@ -14,7 +14,8 @@ namespace HomeTrackerTest
 
         RealEstateCompany()
         {
-            Agents = new List<Agent>();
+            Agents = new List<Agent>();//should this be a sorted list? I think so
+
         }
         public virtual ICollection<Agent> Agents { get; set; }
         //add data to Agent
