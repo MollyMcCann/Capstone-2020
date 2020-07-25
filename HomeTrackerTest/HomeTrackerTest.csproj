@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Agent.cs" />
+    <Compile Include="Buyer.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,8 +66,11 @@
     </Compile>
     <Compile Include="Home.cs" />
     <Compile Include="HomeCollection.cs" />
+    <Compile Include="HomeSales.cs" />
+    <Compile Include="HomeSalesCollection.cs" />
     <Compile Include="Owner.cs" />
     <Compile Include="PeopleCollection.cs" />
+    <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RealEstateCompany.cs" />
