@@ -5,22 +5,30 @@ using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HomeTrackerDatamodelLibrary;//add this to all collections
 
 namespace HomeTrackerTest
 {
     class HomeCollection
-        : IEnumerator<HomeCollection>, IEnumerable<HomeCollection>
+        : IEnumerator, IEnumerable
     {
         public HomeCollection()
         {
             _homes = new List<Home>();
+            using (HomeTrackerModel1 db = new HomeTrackerModel1())
+            {
+                //retrieve data:
+                Home home = (from h in db.Homes
+                             select h).FirstOrDefault();
+                Add(home);
+            }
         }
         private List<Home> _homes;
         int position = -1;
+    
+        public Home Current => _homes[position];
 
-        public HomeCollection Current => throw new NotImplementedException();
-
-        object IEnumerator.Current => throw new NotImplementedException();
+        object IEnumerator.Current => _homes[position];
 
         public void Add(Home home)
         {
@@ -37,9 +45,9 @@ namespace HomeTrackerTest
          //   throw new NotImplementedException();
         }
 
-        public IEnumerator<HomeCollection> GetEnumerator()
+        public IEnumerator GetEnumerator()
         {
-            throw new NotImplementedException();
+            return this;
         }
 
         public bool MoveNext()

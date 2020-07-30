@@ -5,7 +5,7 @@ namespace HomeTrackerTest
 {
     public class Buyer
     {
-       // private Person person;
+        private Person person;
 
         public int BuyerID { get; set; }
 
