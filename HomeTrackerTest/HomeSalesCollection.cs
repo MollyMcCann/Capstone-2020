@@ -11,25 +11,25 @@ namespace HomeTrackerTest
     class HomeSalesCollection
         : IEnumerator, IEnumerable
     {
+        private List<HomeSale> _homeSales;
+        int position = -1;
         public HomeSalesCollection()
         {
-            _homeSales = new List<HomeSales>();
-            using (HomeTrackerModel1 db = new HomeTrackerModel1())
-            {
-                //retrieve data:
-                HomeSales homeSales = (from hs in db.HomeSales
-                             select hs).FirstOrDefault();
-                Add(homeSales);
-            }
-        }
-        private List<HomeSales> _homeSales;
-        int position = -1;
+            _homeSales = new List<HomeSale>();
+           // using (HomeTrackerModel1 db = new HomeTrackerModel1())
+           // {
+           //     //retrieve data:
+           //     HomeSale homeSales = (from hs in db.HomeSales
+           //                  select hs).FirstOrDefault();
+           //     Add(homeSales);
+           // }
+        }     
 
-        public HomeSalesCollection Current => _homeSales[position];
+        public HomeSale Current => _homeSales[position];
 
         object IEnumerator.Current => _homeSales[position];
 
-        public void Add(HomeSales homeSales)
+        public void Add(HomeSale homeSales)
         {
 
             var re = _homeSales.SingleOrDefault(hs => hs.HomeID == homeSales.HomeID);
@@ -44,9 +44,9 @@ namespace HomeTrackerTest
             //   throw new NotImplementedException();
         }
 
-        public IEnumerator<HomeCollection> GetEnumerator()
+        public IEnumerator GetEnumerator()
         {
-            throw new NotImplementedException();
+            return this;
         }
 
         public bool MoveNext()
@@ -61,12 +61,9 @@ namespace HomeTrackerTest
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return (IEnumerator<HomeSales>)this;
+            return (IEnumerator<HomeSale>)this;
         }
 
-        IEnumerator<HomeSalesCollection> IEnumerable<HomeSalesCollection>.GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

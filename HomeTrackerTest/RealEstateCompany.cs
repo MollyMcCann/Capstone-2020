@@ -7,18 +7,18 @@ using HomeTrackerDatamodelLibrary;
 
 namespace HomeTrackerTest
 {
-    class RealEstateCompany
-    {
-        public string CompanyName { get; set; }
-        public int CompanyId { get; set; }
-        public int PhoneNumber { get; set; }
+//    class RealEstateCompany
+//    {
+//        public string CompanyName { get; set; }
+//        public int CompanyId { get; set; }
+//        public int PhoneNumber { get; set; }
 
-        RealEstateCompany()
-        {
-            Agents = new List<Agent>();//should this be a sorted list? I think so
+//        RealEstateCompany()
+//        {
+//            Agents = new List<Agent>();//should this be a sorted list? I think so
 
-        }
-        public virtual ICollection<Agent> Agents { get; set; }
-        //add data to Agent
-    }
+//        }
+//        public virtual ICollection<Agent> Agents { get; set; }
+//        //add data to Agent
+//    }
 }

@@ -63,11 +63,9 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home.cs" />
     <Compile Include="HomeCollection.cs" />
-    <Compile Include="Owner.cs" />
+    <Compile Include="HomeSalesCollection.cs" />
     <Compile Include="PeopleCollection.cs" />
-    <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RealEstateCompany.cs" />

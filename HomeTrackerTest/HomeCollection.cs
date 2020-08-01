@@ -12,20 +12,14 @@ namespace HomeTrackerTest
     class HomeCollection
         : IEnumerator, IEnumerable
     {
-        public HomeCollection()
-        {
-            _homes = new List<Home>();
-            using (HomeTrackerModel1 db = new HomeTrackerModel1())
-            {
-                //retrieve data:
-                Home home = (from h in db.Homes
-                             select h).FirstOrDefault();
-                Add(home);
-            }
-        }
         private List<Home> _homes;
         int position = -1;
     
+        public HomeCollection()
+        {
+            _homes = new List<Home>();
+        }
+
         public Home Current => _homes[position];
 
         object IEnumerator.Current => _homes[position];

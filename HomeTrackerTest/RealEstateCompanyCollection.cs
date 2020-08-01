@@ -4,29 +4,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HomeTrackerDatamodelLibrary;
 
 namespace HomeTrackerTest
 {
     class RealEstateCompanyCollection
-            : IEnumerator<RealEstateCompanyCollection>, IEnumerable<RealEstateCompanyCollection>
+            : IEnumerator, IEnumerable
     {
+        private List<RealEstateCompany> _realEstateCompanies;
+        int position = -1;
         public RealEstateCompanyCollection()
         {
             _realEstateCompanies = new List<RealEstateCompany>();
         }
 
-        public RealEstateCompanyCollection Current => throw new NotImplementedException();
+        public RealEstateCompany Current => _realEstateCompanies[position];
 
-        object IEnumerator.Current => throw new NotImplementedException();
+        object IEnumerator.Current => _realEstateCompanies[position];
 
 
-        private List<RealEstateCompany> _realEstateCompanies;
-        int position = -1;
+       
 
         public void Add(RealEstateCompany realEstateCompany)
         {
-            var re = _realEstateCompanies.SingleOrDefault(r => r.CompanyId == realEstateCompany.CompanyId);
-            if (re == null)
+            var re = _realEstateCompanies.SingleOrDefault(r => r.CompanyID == realEstateCompany.CompanyID);
+            if (re == null)//the r here might give us trouble later
             {
                 _realEstateCompanies.Add(realEstateCompany);
             }
@@ -36,9 +38,9 @@ namespace HomeTrackerTest
            // throw new NotImplementedException();
         }
 
-        public IEnumerator<RealEstateCompanyCollection> GetEnumerator()
+        public IEnumerator GetEnumerator()
         {
-            throw new NotImplementedException();
+            return this;
         }
 
         public bool MoveNext()
@@ -60,7 +62,7 @@ namespace HomeTrackerTest
 
         public RealEstateCompany Get(int id)
         {
-            return _realEstateCompanies.SingleOrDefault(re => re.CompanyId == id);
+            return _realEstateCompanies.SingleOrDefault(re => re.CompanyID == id);
         }
 
     }

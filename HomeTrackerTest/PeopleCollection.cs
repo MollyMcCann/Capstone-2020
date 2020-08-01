@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using HomeTrackerDatamodelLibrary;
 namespace HomeTrackerTest
 {
 
@@ -28,8 +28,6 @@ namespace HomeTrackerTest
 
             public T Current => _peopleList[position];
 
-
-
             object IEnumerator.Current => _peopleList[position];
 
 
@@ -52,7 +50,7 @@ namespace HomeTrackerTest
 
 
 
-            public T Get(int id)
+            public T Get(int id)//check in on this
             {
                 return _peopleList.SingleOrDefault(p => p.Id == id);
             }
