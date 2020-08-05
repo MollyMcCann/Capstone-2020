@@ -29,7 +29,8 @@ namespace HomeTrackerTest
         
             foreach( Home home in homeCollection)
             {
-                searchBox.Text = home.Address;
+                //searchBox.Text = home.Address; ADD THIS BACK EVENTUALLY, THIS WAS THE TEST TO SEE IF WE CAN CONNECT to db
+                
             }
         }
         private PeopleCollection1 peopleCollection;
@@ -38,9 +39,20 @@ namespace HomeTrackerTest
         private HomeSalesCollection homeSalesCollection;
         // group varibles together do this with all collections
         //this is where you will have all the reach from db to ui and the code paths
+        private void AddressListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AddressListBox.Text = home.Address;
+        }
         private void searchBox_TextChanged(object sender, EventArgs e)
         {
 
         }
+
+        private void CityListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+       
     }
 }
